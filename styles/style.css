@@ -24,9 +24,14 @@
 .canvas {
     height: 350px;
     width: 400px;
+    background-color: #ef972c;
     border: 2px solid #ef972c;
     border-radius: 15px;
     margin: 15px 0;
+}
+
+img {
+    z-index: 124;
 }
 
 .btn-create {
@@ -36,11 +41,16 @@
     color: #f1f1f1;
     border: 0;
     border-radius: 10px;
-    transition: all 0.2s;
+    transition: all 0.1s;
 }
+
 .btn-create:hover {
     background-color: #cc852f;
     cursor: pointer;
+}
+
+.btn-create:active {
+    background-color: #b67c36;
 }
 
 .traits-container {
@@ -50,6 +60,7 @@
     justify-content: space-between;
     width: 500px;
 }
+
 .traits-list {
     list-style: none;
     display: flex;
@@ -60,10 +71,24 @@
 .traits {
     padding: 0 10px;
     border-left: 1px #f1f1f1 solid;
+    transition: all 0.20s;
+}
+
+.traits:hover {
+    color: #ef972c;
+    cursor: pointer;
+}
+
+.traits:active {
+    color: #cc852f;
 }
 
 .traits:first-child {
     border-left: none;
+}
+
+.traits::selection {
+    background: none;
 }
 
 .options-container {
@@ -79,10 +104,12 @@
 .options-container::-webkit-scrollbar {
     width: 15px;
 }
+
 .options-container::-webkit-scrollbar-thumb {
     background-color: #636262;
     border-radius: 50px;
 }
+
 .options-container::-webkit-scrollbar-thumb:hover {
     background-color: #7e7c7c;
 }
