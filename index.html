@@ -12,59 +12,54 @@
 <body>
     <section class="container">
         <article style="display: flex; flex-direction: row;">
-            <article class="custom-container">
+            <article class="custom_container">
                 <h3>Your apeace</h3>
                 <div>
                     <canvas id="canvas" class="canvas">
                     </canvas>
                 </div>
-                <button class="btn-create" id="btnCreate">Create</button>
+                <button class="btn_create" id="btnCreate">Create</button>
             </article>
-            <article class="traits-container">
-                <ul class="traits-list">
-                    <!-- <li class="traits" id="furTrait">Fur</li>
-                    <li class="traits" id="backgroundTrait">Background color</li>
-                    <li class="traits" id="clothesTrait">Clothes</li>
-                    <li class="traits" id="fingerTrait">Finger</li>
-                    <li class="traits" id="holdTrait">Holding</li>
-                    <li class="traits" id="nailsTrait">Nails</li>
-                    <li class="traits" id="wristTrait">Wrist</li> -->
+            <article class="list_container">
+                <ul class="traits_list">
+                    <a class="traits" id="backgroundTrait" href="#optionsBg">Background</a>
+                    <a class="traits" id="furTrait" href="#optionsFur">Fur</a>
+                    <a class="traits" id="holdTrait" href="#optionsHolding">Holding</a>
+                    <a class="traits" id="clothesTrait" href="#optionsClothes">Clothing</a>
+                    <a class="traits" id="fingerTrait" href="#optionsFinger">Finger</a>
+                    <a class="traits" id="nailsTrait" href="#optionsNails">Nails</a>
+                    <a class="traits" id="wristTrait" href="#optionsWrist">Wrist</a>
                 </ul>
-                <div class="options-container" id="variants">
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                    <div class="option"></div>
-                </div>
+                <div class="options_container" id="variants">
+                    <div id="optionsFur" class="traits_container">
+                    </div>
+                    <div id="optionsBg" class="traits_container"></div>
+
+
+                    <div id="optionsClothes" class="traits_container"></div>
+
+
+                    <div id="optionsFinger" class="traits_container"></div>
+
+
+                    <div id="optionsHolding" class="traits_container"></div>
+
+
+                    <div id="optionsNails" class="traits_container"></div>
+
+
+                    <div id="optionsWrist" class="traits_container">
+
+
+                    </div>
             </article>
         </article>
     </section>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./js/index.js"></script>
-    
+
 </body>
 
 </html>

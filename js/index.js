@@ -1,6 +1,9 @@
 const imgCanvas = document.getElementById("canvas");
 const ctx = imgCanvas.getContext("2d");
-const traitsList = document.querySelector(".traits-list"); 
+const traitsList = document.querySelector(".traits_list");
+const listContainer = document.querySelector(".list_container");
+const variantsContainer = document.getElementById("variants");
+const traitsContainer = document.querySelector(".traits_container")
 const fur = document.getElementById("furTrait");
 const backgroundColor = document.getElementById("backgroundTrait");
 const clothes = document.getElementById("clothesTrait");
@@ -9,28 +12,48 @@ const hold = document.getElementById("holdTrait");
 const nails = document.getElementById("nailsTrait");
 const wrist = document.getElementById("wristTrait");
 
+async function getTraits() {
+    try {
+        const response = await fetch("/JSON/traits.json");
+        const traits = await response.json();
 
-async function getTraits(){
-    const res = await fetch("/JSON/traits.json");
-    const data = await res.json();
+        traits.forEach(carc => {
 
-    data.forEach((traits)  => {
+            const trait = carc.trait;
+            const imagen = carc.imagen;
 
-// POSIBILIDAD DE REESCRIBIR EL CÓDIGO CON UN INNER Y FOR PARA LOS DISTINTOS IDS
-
-        let trait = traits.trait;
-        let itemTrait = document.createElement("li");
-        trait = trait.charAt(0).toUpperCase() + trait.slice(1);
-        itemTrait.innerText = trait;
-        itemTrait.classList.add('traits');
-        traitsList.append(itemTrait);
-    });
-
-
+            for (const color in imagen) {
+                const urlImg = imagen[color];
+                const option = document.createElement('div');
+                option.innerHTML = `
+                <img src="${urlImg}" style="width:70px; height: 70px;" />
+                `;
+                variantsContainer.append(option);
+            }
+        });
+    }
+    catch (err) {
+        console.log('something goes wrong:', err)
+    }
 
 }
 
+function active() {
+    $('ul a:first').addClass('active');
+    $('.traits_container').hide();
+    $('.traits_container:first').show();
+
+    $('ul.traits_list a').click(function () {
+        $('ul.traits_list a').removeClass('active');
+        $(this).addClass('active');
+        $('.options_container .traits_container').hide();
+
+        let option = $(this).attr('href');
+        $(option).show();
+        return false;
+    });
+}
+active();
 getTraits();
 
 
-addEventListener

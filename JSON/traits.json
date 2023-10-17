@@ -1,15 +1,15 @@
 [
     {
         "trait" : "fur",
-        "color" : {
+        "imagen" : {
             "black" : "../img/fur/black.png",
             "blue" : "../img/fur/blue.png",
             "white" : "../img/fur/white.png"
         }
     },
     {
-        "trait" : "Background color",
-        "color" : {
+        "trait" : "background",
+        "imagen" : {
             "black" : "../img/background/black.jpg",
             "blue" :  "../img/background/blue.jpg",
             "orange" :  "../img/background/orange.jpg"
@@ -17,7 +17,7 @@
     },
     {
         "trait" : "clothes",
-        "types" : {
+        "imagen" : {
            "admiralsCoat" : "../img/clothing/admirals-coat.png",
            "blackHoles" : "../img/clothing/black-holes.png",
            "leatherJacket" : "../img/clothing/leather-jacket.png" 
@@ -25,15 +25,15 @@
     },
     {
         "trait" : "finger",
-        "types" : {
+        "imagen" : {
             "boltRing" : "../img/finger/bolt-ring.png",
-            "goldRing" : "../img/finger/bolt-ring.png",
-            "woodRing" : "../img/finger/bolt-ring.png"
+            "goldRing" : "../img/finger/gold-ring.png",
+            "woodRing" : "../img/finger/wood-ring.png"
         }
     },
     {
-        "trait" : "holding",
-        "types" : {
+        "trait" : "hold",
+        "imagen" : {
             "aceCard" : "../img/hold/ace-card.png",
             "banana" : "../img/hold/banana.png",
             "fourLeafClover" : "../img/hold/four-leaf-clover.png"
@@ -41,7 +41,7 @@
     },
     {
         "trait" : "nails",
-        "types" : {
+        "imagen" : {
             "black" : "../img/nails/black.png",
             "hippie" : "../img/nails/hippie.png",
             "peace" : "../img/nails/peace.png"
@@ -49,7 +49,7 @@
     },
     {
         "trait" : "wrist",
-        "types" : {
+        "imagen" : {
             "chain" : "../img/wrist/chain.png",
             "gothicBracelet" : "../img/wrist/gothic-bracelet.png",
             "watch" : "../img/wrist/watch.png"
