@@ -1,18 +1,18 @@
 [
     {
-        "trait" : "fur",
-        "imagen" : {
-            "black" : "../img/fur/black.png",
-            "blue" : "../img/fur/blue.png",
-            "white" : "../img/fur/white.png"
-        }
-    },
-    {
         "trait" : "background",
         "imagen" : {
             "black" : "../img/background/black.jpg",
             "blue" :  "../img/background/blue.jpg",
             "orange" :  "../img/background/orange.jpg"
+        }
+    },
+    {
+        "trait" : "fur",
+        "imagen" : {
+            "black" : "../img/fur/black.png",
+            "blue" : "../img/fur/blue.png",
+            "white" : "../img/fur/white.png"
         }
     },
     {
