@@ -4,8 +4,8 @@ const traitsList = document.querySelector(".traits_list");
 const listContainer = document.querySelector(".list_container");
 const variantsContainer = document.getElementById("variants");
 const traitsContainer = document.querySelector(".traits_container")
-const fur = document.getElementById("optionsFur");
 const backgroundColor = document.getElementById("optionsBg");
+const fur = document.getElementById("optionsFur");
 const clothes = document.getElementById("optionsClothes");
 const finger = document.getElementById("optionsFinger");
 const holding = document.getElementById("optionsHolding");
@@ -14,7 +14,7 @@ const wrist = document.getElementById("optionsWrist");
 
 async function getTraits() {
     try {
-        const response = await fetch("/JSON/traits.json");
+        const response = await fetch("../JSON/traits.json");
         const traits = await response.json();
 
         traits.forEach(carc => {
@@ -26,25 +26,27 @@ async function getTraits() {
                 const urlImg = imagen[color];
                 const option = document.createElement('div');
                 option.innerHTML = `
-                <img src="${urlImg}" style="width:100%; height: 100%;" />
-                `;
-                option.classList.add('option');
-                if (trait === "background") {
-                    backgroundColor.append(option);
-                } else if (trait === "fur") {
-                    fur.append(option);
-                } else if (trait === "hold") {
-                    holding.append(option);
-                } else if (trait === "clothes") {
-                    clothes.append(option);
-                } else if (trait === "finger") {
-                    finger.append(option);
-                } else if (trait === "nails") {
-                    nails.append(option);
-                } else {
-                    wrist.append(option);
+            <img src="${urlImg}" style="width:100%; height: 100%;" />
+            `;
+                function seccionarTraits() {
+                    option.classList.add('option');
+                    if (trait === "background") {
+                        backgroundColor.append(option);
+                    } else if (trait === "fur") {
+                        fur.append(option);
+                    } else if (trait === "hold") {
+                        holding.append(option);
+                    } else if (trait === "clothes") {
+                        clothes.append(option);
+                    } else if (trait === "finger") {
+                        finger.append(option);
+                    } else if (trait === "nails") {
+                        nails.append(option);
+                    } else {
+                        wrist.append(option);
+                    }
                 }
-
+                seccionarTraits();
                 option.addEventListener('click', () => {
                     console.log(urlImg);
                 });
