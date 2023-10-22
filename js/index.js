@@ -1,6 +1,7 @@
-const imgCanvas = document.getElementById("canvas");
-const ctx = imgCanvas.getContext("2d");
+const theCanvas = new fabric.Canvas("canvas");
+const ctx = theCanvas.getContext("2d");
 const traitsList = document.querySelector(".traits_list");
+const createBtn = document.getElementById("btnCreate")
 const listContainer = document.querySelector(".list_container");
 const variantsContainer = document.getElementById("variants");
 const traitsContainer = document.querySelector(".traits_container")
@@ -14,7 +15,7 @@ const wrist = document.getElementById("optionsWrist");
 
 async function getTraits() {
     try {
-        const response = await fetch("../JSON/traits.json");
+        const response = await fetch("../json/traits.json");
         const traits = await response.json();
 
         traits.forEach(carc => {
@@ -24,31 +25,36 @@ async function getTraits() {
 
             for (const color in imagen) {
                 const urlImg = imagen[color];
-                const option = document.createElement('div');
-                option.innerHTML = `
-            <img src="${urlImg}" style="width:100%; height: 100%;" />
-            `;
-                function seccionarTraits() {
-                    option.classList.add('option');
-                    if (trait === "background") {
-                        backgroundColor.append(option);
-                    } else if (trait === "fur") {
-                        fur.append(option);
-                    } else if (trait === "hold") {
-                        holding.append(option);
-                    } else if (trait === "clothes") {
-                        clothes.append(option);
-                    } else if (trait === "finger") {
-                        finger.append(option);
-                    } else if (trait === "nails") {
-                        nails.append(option);
-                    } else {
-                        wrist.append(option);
-                    }
+                const option = document.createElement('img');
+                option.classList.add('imgOption');
+                option.src = urlImg;
+                option.classList.add('option');
+                if (trait === "background") {
+                    backgroundColor.append(option);
+                } else if (trait === "fur") {
+                    fur.append(option);
+                    
+                } else if (trait === "hold") {
+                    holding.append(option);
+                } else if (trait === "clothes") {
+                    clothes.append(option);
+                } else if (trait === "finger") {
+                    finger.append(option);
+                } else if (trait === "nails") {
+                    nails.append(option);
+                } else {
+                    wrist.append(option);
                 }
-                seccionarTraits();
                 option.addEventListener('click', () => {
-                    console.log(urlImg);
+                    fabric.Image.fromURL(urlImg, function(oImg) {
+                        oImg.set({
+                            left: 200,
+                            top: 0,
+                            angle: 90,
+                            opacity: 1.0
+                          });
+                        theCanvas.add(oImg);
+                      });
                 });
             }
         });
