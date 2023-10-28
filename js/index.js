@@ -30,32 +30,152 @@ async function getTraits() {
                 option.src = urlImg;
                 option.classList.add('option');
                 if (trait === "background") {
-                    backgroundColor.append(option);
-                } else if (trait === "fur") {
-                    fur.append(option);
-                    
-                } else if (trait === "hold") {
-                    holding.append(option);
-                } else if (trait === "clothes") {
-                    clothes.append(option);
-                } else if (trait === "finger") {
-                    finger.append(option);
-                } else if (trait === "nails") {
-                    nails.append(option);
-                } else {
-                    wrist.append(option);
-                }
-                option.addEventListener('click', () => {
-                    fabric.Image.fromURL(urlImg, function(oImg) {
-                        oImg.set({
-                            left: 200,
+                    option.addEventListener('click', () => {
+                        var imgInstance = new fabric.Image(option, {
+                            left: 300,
                             top: 0,
                             angle: 90,
                             opacity: 1.0
-                          });
-                        theCanvas.add(oImg);
-                      });
-                });
+                        });
+                        theCanvas.add(imgInstance);
+                    });
+                    backgroundColor.append(option);
+                } else if (trait === "fur") {
+                    option.addEventListener('click', () => {
+                        var imgInstance = new fabric.Image(option, {
+                            left: 70,
+                            top: 0,
+                            angle: 0,
+                            opacity: 1.0,
+                            width: 188,
+                            height: 188
+                        });
+                        theCanvas.add(imgInstance);
+                    });
+                    fur.append(option);
+                } else if (trait === "nails") {
+                    option.addEventListener('click', () => {
+                        var imgInstance = new fabric.Image(option, {
+                            left: 74,
+                            top: 5,
+                            angle: 0,
+                            opacity: 1.0,
+                            width: 160,
+                            height: 160
+                        });
+                        theCanvas.add(imgInstance);
+                    });
+                    holding.append(option);
+                } else if (trait === "clothes") {
+                    option.addEventListener('click', () => {
+                        var imgInstance = new fabric.Image(option, {
+                            left: 55,
+                            top: -30,
+                            angle: 0,
+                            opacity: 1.0,
+                            width: 188,
+                            height: 188
+                        });
+                        theCanvas.add(imgInstance);
+                        // let repite = true;
+                        // theCanvas.remove(imgInstance);
+                    });
+                    clothes.append(option);
+                } else if (trait === "finger") {
+                    option.addEventListener('click', () => {
+                        if (color == "woodRing") {
+                            var imgInstance = new fabric.Image(option, {
+                                left: 55,
+                                top: -12,
+                                angle: 0,
+                                opacity: 1.0,
+                                width: 155,
+                                height: 155
+                            });
+                            theCanvas.add(imgInstance);
+                        } else if (color == "goldRing") {
+                            var imgInstance = new fabric.Image(option, {
+                                left: 65,
+                                top: -12,
+                                angle: 0,
+                                opacity: 1.0,
+                                width: 155,
+                                height: 155
+                            });
+                            theCanvas.add(imgInstance);
+                        } else {
+                            var imgInstance = new fabric.Image(option, {
+                                left: 80,
+                                top: 3,
+                                angle: 0,
+                                opacity: 1.0,
+                                width: 155,
+                                height: 155
+                            });
+                            theCanvas.add(imgInstance);
+                        }
+
+                    });
+                    finger.append(option);
+                } else if (trait === "hold") {
+                    option.addEventListener('click', () => {
+                        if (color == "aceCard") {
+                            var imgInstance = new fabric.Image(option, {
+                                left: 77,
+                                top: 7,
+                                angle: 0,
+                                opacity: 1.0,
+                                width: 150,
+                                height: 150
+                            });
+                            theCanvas.add(imgInstance);
+                        }else if (color == "banana"){
+                            var imgInstance = new fabric.Image(option, {
+                                left: 75,
+                                top: 5,
+                                angle: 0,
+                                opacity: 1.0,
+                                width: 150,
+                                height: 150
+                            });
+                            theCanvas.add(imgInstance);
+                        }else {
+                            var imgInstance = new fabric.Image(option, {
+                                left: 115,
+                                top: -13,
+                                angle: 10,
+                                opacity: 1.0,
+                                width: 150,
+                                height: 150
+                            });
+                            theCanvas.add(imgInstance);
+                        }
+                    });
+                    nails.append(option);
+                } else {
+                    option.addEventListener('click', () => {
+                        var imgInstance = new fabric.Image(option, {
+                            left: 73,
+                            top: 2,
+                            angle: 0,
+                            opacity: 1.0,
+                            width: 155,
+                            height: 155
+                        });
+                        theCanvas.add(imgInstance);
+                    });
+                    wrist.append(option);
+                }
+                console.log(color);
+                createBtn.onclick = () => {
+                    const dataURL = theCanvas.toDataURL("image/png");
+                    const a = document.createElement('a');
+                    a.download = "customApeace";
+                    a.href = dataURL;
+                    a.click();
+                    // agregar cartel de que fue un exito la descarga y apretar f5 
+                    //para recargar pagina
+                }
             }
         });
     }
