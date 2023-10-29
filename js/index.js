@@ -37,6 +37,7 @@ async function getTraits() {
                             angle: 90,
                             opacity: 1.0
                         });
+                        imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                     });
                     backgroundColor.append(option);
@@ -50,6 +51,7 @@ async function getTraits() {
                             width: 188,
                             height: 188
                         });
+                        imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                     });
                     fur.append(option);
@@ -63,6 +65,7 @@ async function getTraits() {
                             width: 160,
                             height: 160
                         });
+                        imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                     });
                     holding.append(option);
@@ -76,6 +79,7 @@ async function getTraits() {
                             width: 188,
                             height: 188
                         });
+                        imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                         // let repite = true;
                         // theCanvas.remove(imgInstance);
@@ -92,6 +96,7 @@ async function getTraits() {
                                 width: 155,
                                 height: 155
                             });
+                            imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         } else if (color == "goldRing") {
                             var imgInstance = new fabric.Image(option, {
@@ -102,6 +107,7 @@ async function getTraits() {
                                 width: 155,
                                 height: 155
                             });
+                            imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         } else {
                             var imgInstance = new fabric.Image(option, {
@@ -112,6 +118,7 @@ async function getTraits() {
                                 width: 155,
                                 height: 155
                             });
+                            imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         }
 
@@ -128,6 +135,7 @@ async function getTraits() {
                                 width: 150,
                                 height: 150
                             });
+                            imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         }else if (color == "banana"){
                             var imgInstance = new fabric.Image(option, {
@@ -138,6 +146,7 @@ async function getTraits() {
                                 width: 150,
                                 height: 150
                             });
+                            imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         }else {
                             var imgInstance = new fabric.Image(option, {
@@ -148,6 +157,7 @@ async function getTraits() {
                                 width: 150,
                                 height: 150
                             });
+                            imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         }
                     });
@@ -162,6 +172,7 @@ async function getTraits() {
                             width: 155,
                             height: 155
                         });
+                        imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                     });
                     wrist.append(option);

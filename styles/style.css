@@ -22,7 +22,7 @@
 }
 
 .canvas-container {
-    width: 400px !important;
+    width: 450px !important;
     height: 350px !important;
 }
 
@@ -32,7 +32,7 @@
 
 canvas {
     height: 350px !important;
-    width: 400px !important;
+    width: 450px !important;
     border: 2px solid #787776 !important;
     border-radius: 15px !important;
     position: absolute !important;
