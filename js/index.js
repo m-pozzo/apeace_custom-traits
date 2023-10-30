@@ -35,7 +35,8 @@ async function getTraits() {
                             left: 300,
                             top: 0,
                             angle: 90,
-                            opacity: 1.0
+                            opacity: 1.0,
+                            overlayImage: 1
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
@@ -49,7 +50,9 @@ async function getTraits() {
                             angle: 0,
                             opacity: 1.0,
                             width: 188,
-                            height: 188
+                            height: 188,
+                            overlayImage: 20
+
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
@@ -63,7 +66,8 @@ async function getTraits() {
                             angle: 0,
                             opacity: 1.0,
                             width: 160,
-                            height: 160
+                            height: 160,
+                            overlayImage: 30
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
@@ -77,12 +81,12 @@ async function getTraits() {
                             angle: 0,
                             opacity: 1.0,
                             width: 188,
-                            height: 188
+                            height: 188,
+                            overlayImage: 40
                         });
                         imgInstance.selectable = false;
+                        theCanvas.remove(imgInstance);
                         theCanvas.add(imgInstance);
-                        // let repite = true;
-                        // theCanvas.remove(imgInstance);
                     });
                     clothes.append(option);
                 } else if (trait === "finger") {
@@ -94,7 +98,8 @@ async function getTraits() {
                                 angle: 0,
                                 opacity: 1.0,
                                 width: 155,
-                                height: 155
+                                height: 155,
+                                overlayImage: 50
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
@@ -105,7 +110,8 @@ async function getTraits() {
                                 angle: 0,
                                 opacity: 1.0,
                                 width: 155,
-                                height: 155
+                                height: 155,
+                                overlayImage: 50
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
@@ -116,7 +122,8 @@ async function getTraits() {
                                 angle: 0,
                                 opacity: 1.0,
                                 width: 155,
-                                height: 155
+                                height: 155,
+                                overlayImage: 50
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
@@ -133,29 +140,32 @@ async function getTraits() {
                                 angle: 0,
                                 opacity: 1.0,
                                 width: 150,
-                                height: 150
+                                height: 150,
+                                overlayImage: 60
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
-                        }else if (color == "banana"){
+                        } else if (color == "banana") {
                             var imgInstance = new fabric.Image(option, {
                                 left: 75,
                                 top: 5,
                                 angle: 0,
                                 opacity: 1.0,
                                 width: 150,
-                                height: 150
+                                height: 150,
+                                overlayImage: 60
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
-                        }else {
+                        } else {
                             var imgInstance = new fabric.Image(option, {
                                 left: 115,
                                 top: -13,
                                 angle: 10,
                                 opacity: 1.0,
                                 width: 150,
-                                height: 150
+                                height: 150,
+                                overlayImage: 60
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
@@ -170,7 +180,8 @@ async function getTraits() {
                             angle: 0,
                             opacity: 1.0,
                             width: 155,
-                            height: 155
+                            height: 155,
+                            overlayImage: 70
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
@@ -184,9 +195,15 @@ async function getTraits() {
                     a.download = "customApeace";
                     a.href = dataURL;
                     a.click();
-                    // agregar cartel de que fue un exito la descarga y apretar f5 
-                    //para recargar pagina
+                    Toastify({
+                        text: "Created succesfully!",
+                        style: {
+                          background: "linear-gradient(to right, #ef972c, #ef972c)",
+                        }
+                      }).showToast();
                 }
+                // agregar cartel de que fue un exito la descarga y apretar f5 
+                //para recargar pagina
             }
         });
     }
