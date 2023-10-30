@@ -44,6 +44,11 @@ async function getTraits() {
                     backgroundColor.append(option);
                 } else if (trait === "fur") {
                     option.addEventListener('click', () => {
+                        theCanvas.forEachObject((obj) => {
+                            if (obj.trait === "fur") {
+                                theCanvas.remove(obj);
+                            }
+                        });
                         var imgInstance = new fabric.Image(option, {
                             left: 70,
                             top: 0,
@@ -51,8 +56,8 @@ async function getTraits() {
                             opacity: 1.0,
                             width: 188,
                             height: 188,
-                            overlayImage: 20
-
+                            overlayImage: 20,
+                            trait: "fur"
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
@@ -60,6 +65,11 @@ async function getTraits() {
                     fur.append(option);
                 } else if (trait === "nails") {
                     option.addEventListener('click', () => {
+                        theCanvas.forEachObject((obj) => {
+                            if (obj.trait === "nails") {
+                                theCanvas.remove(obj);
+                            }
+                        });
                         var imgInstance = new fabric.Image(option, {
                             left: 74,
                             top: 5,
@@ -67,7 +77,8 @@ async function getTraits() {
                             opacity: 1.0,
                             width: 160,
                             height: 160,
-                            overlayImage: 30
+                            overlayImage: 30,
+                            trait: "nails"
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
@@ -75,6 +86,11 @@ async function getTraits() {
                     holding.append(option);
                 } else if (trait === "clothes") {
                     option.addEventListener('click', () => {
+                        theCanvas.forEachObject((obj) => {
+                            if (obj.trait === "clothes") {
+                                theCanvas.remove(obj);
+                            }
+                        });
                         var imgInstance = new fabric.Image(option, {
                             left: 55,
                             top: -30,
@@ -82,16 +98,21 @@ async function getTraits() {
                             opacity: 1.0,
                             width: 188,
                             height: 188,
-                            overlayImage: 40
+                            overlayImage: 40,
+                            trait: "clothes"
                         });
                         imgInstance.selectable = false;
-                        theCanvas.remove(imgInstance);
                         theCanvas.add(imgInstance);
                     });
                     clothes.append(option);
                 } else if (trait === "finger") {
                     option.addEventListener('click', () => {
                         if (color == "woodRing") {
+                            theCanvas.forEachObject((obj) => {
+                                if (obj.trait === "finger") {
+                                    theCanvas.remove(obj);
+                                }
+                            });
                             var imgInstance = new fabric.Image(option, {
                                 left: 55,
                                 top: -12,
@@ -99,23 +120,35 @@ async function getTraits() {
                                 opacity: 1.0,
                                 width: 155,
                                 height: 155,
-                                overlayImage: 50
+                                overlayImage: 50,
+                                trait: "finger"
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         } else if (color == "goldRing") {
+                            theCanvas.forEachObject((obj) => {
+                                if (obj.trait === "finger") {
+                                    theCanvas.remove(obj);
+                                }
+                            });
                             var imgInstance = new fabric.Image(option, {
-                                left: 65,
-                                top: -12,
+                                left: 68,
+                                top: -4,
                                 angle: 0,
                                 opacity: 1.0,
                                 width: 155,
                                 height: 155,
-                                overlayImage: 50
+                                overlayImage: 50,
+                                trait: "finger"
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         } else {
+                            theCanvas.forEachObject((obj) => {
+                                if (obj.trait === "finger") {
+                                    theCanvas.remove(obj);
+                                }
+                            });
                             var imgInstance = new fabric.Image(option, {
                                 left: 80,
                                 top: 3,
@@ -123,7 +156,8 @@ async function getTraits() {
                                 opacity: 1.0,
                                 width: 155,
                                 height: 155,
-                                overlayImage: 50
+                                overlayImage: 50,
+                                trait: "finger"
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
@@ -134,6 +168,11 @@ async function getTraits() {
                 } else if (trait === "hold") {
                     option.addEventListener('click', () => {
                         if (color == "aceCard") {
+                            theCanvas.forEachObject((obj) => {
+                                if (obj.trait === "hold") {
+                                    theCanvas.remove(obj);
+                                }
+                            });
                             var imgInstance = new fabric.Image(option, {
                                 left: 77,
                                 top: 7,
@@ -141,11 +180,17 @@ async function getTraits() {
                                 opacity: 1.0,
                                 width: 150,
                                 height: 150,
-                                overlayImage: 60
+                                overlayImage: 60,
+                                trait: "hold"
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         } else if (color == "banana") {
+                            theCanvas.forEachObject((obj) => {
+                                if (obj.trait === "hold") {
+                                    theCanvas.remove(obj);
+                                }
+                            });
                             var imgInstance = new fabric.Image(option, {
                                 left: 75,
                                 top: 5,
@@ -153,11 +198,17 @@ async function getTraits() {
                                 opacity: 1.0,
                                 width: 150,
                                 height: 150,
-                                overlayImage: 60
+                                overlayImage: 60,
+                                trait: "hold"
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
                         } else {
+                            theCanvas.forEachObject((obj) => {
+                                if (obj.trait === "hold") {
+                                    theCanvas.remove(obj);
+                                }
+                            });
                             var imgInstance = new fabric.Image(option, {
                                 left: 115,
                                 top: -13,
@@ -165,7 +216,8 @@ async function getTraits() {
                                 opacity: 1.0,
                                 width: 150,
                                 height: 150,
-                                overlayImage: 60
+                                overlayImage: 60,
+                                trait: "hold"
                             });
                             imgInstance.selectable = false;
                             theCanvas.add(imgInstance);
@@ -174,6 +226,11 @@ async function getTraits() {
                     nails.append(option);
                 } else {
                     option.addEventListener('click', () => {
+                        theCanvas.forEachObject((obj) => {
+                            if (obj.trait === "wrist") {
+                                theCanvas.remove(obj);
+                            }
+                        });
                         var imgInstance = new fabric.Image(option, {
                             left: 73,
                             top: 2,
@@ -181,14 +238,14 @@ async function getTraits() {
                             opacity: 1.0,
                             width: 155,
                             height: 155,
-                            overlayImage: 70
+                            overlayImage: 70,
+                            trait: "wrist"
                         });
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                     });
                     wrist.append(option);
                 }
-                console.log(color);
                 createBtn.onclick = () => {
                     const dataURL = theCanvas.toDataURL("image/png");
                     const a = document.createElement('a');
@@ -196,14 +253,13 @@ async function getTraits() {
                     a.href = dataURL;
                     a.click();
                     Toastify({
-                        text: "Created succesfully!",
+                        text: "¡Created succesfully!\nReload the website",
+                        duration: 15000,
                         style: {
-                          background: "linear-gradient(to right, #ef972c, #ef972c)",
+                            background: "linear-gradient(to right, #ef972c, #ef972c)",
                         }
-                      }).showToast();
+                    }).showToast();
                 }
-                // agregar cartel de que fue un exito la descarga y apretar f5 
-                //para recargar pagina
             }
         });
     }

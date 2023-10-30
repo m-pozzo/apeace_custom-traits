@@ -13,6 +13,11 @@
     padding: 117px 0 !important;
 }
 
+.container-direction {
+    display: flex;
+    flex-direction: row;
+}
+
 .custom_container {
     display: flex;
     flex-direction: column;
@@ -158,4 +163,11 @@ img {
 .imgOption {
     width: 90%;
     height: 90%;
+}
+
+@media (max-width: 776px) {
+    .container-direction {
+        display: flex;
+        flex-direction: column;
+    }
 }
