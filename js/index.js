@@ -1,6 +1,5 @@
 const theCanvas = new fabric.Canvas("canvas");
 const ctx = theCanvas.getContext("2d");
-const traitsList = document.querySelector(".traits_list");
 const createBtn = document.getElementById("btnCreate")
 const listContainer = document.querySelector(".list_container");
 const variantsContainer = document.getElementById("variants");
@@ -54,7 +53,7 @@ async function getTraits() {
                             top: 0,
                             angle: 0,
                             opacity: 1.0,
-                            width: 188,
+                            width: 200,
                             height: 188,
                             overlayImage: 20,
                             trait: "fur"
@@ -83,7 +82,7 @@ async function getTraits() {
                         imgInstance.selectable = false;
                         theCanvas.add(imgInstance);
                     });
-                    holding.append(option);
+                    nails.append(option);
                 } else if (trait === "clothes") {
                     option.addEventListener('click', () => {
                         theCanvas.forEachObject((obj) => {
@@ -223,7 +222,7 @@ async function getTraits() {
                             theCanvas.add(imgInstance);
                         }
                     });
-                    nails.append(option);
+                    holding.append(option);
                 } else {
                     option.addEventListener('click', () => {
                         theCanvas.forEachObject((obj) => {
@@ -247,9 +246,14 @@ async function getTraits() {
                     wrist.append(option);
                 }
                 createBtn.onclick = () => {
-                    const dataURL = theCanvas.toDataURL("image/png");
+                    const scaleFactor = 2;
+
+                    const dataURL = theCanvas.toDataURL({
+                    format: "png",
+                    multiplier: scaleFactor     
+                    });
                     const a = document.createElement('a');
-                    a.download = "customApeace";
+                    a.download = "yourApeace";
                     a.href = dataURL;
                     a.click();
                     Toastify({

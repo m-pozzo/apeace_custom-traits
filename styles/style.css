@@ -76,10 +76,13 @@ img {
 }
 
 .traits_list {
-    list-style: none;
     display: flex;
     flex-direction: row;
-    font-size: 1rem;
+    list-style: none;
+}
+
+#nailsTrait {
+    border-right: 1px #f1f1f1 solid;
 
 }
 
@@ -115,6 +118,8 @@ img {
 .options_container {
     width: 500px;
     height: 400px;
+    margin-top: 15px;
+
 }
 
 .traits_container {
@@ -126,8 +131,6 @@ img {
     justify-items: center;
     overflow-y: auto;
 }
-
-
 
 .traits_container::-webkit-scrollbar {
     width: 15px;
@@ -148,7 +151,7 @@ img {
     align-items: center;
     justify-content: center;
     width: 115px;
-    height: 105px;
+    height: 115px;
     background-color: #f1f1f1;
     border-radius: 10px;
     margin: 5px;
@@ -165,9 +168,84 @@ img {
     height: 90%;
 }
 
-@media (max-width: 776px) {
+@media (max-width: 576px) {
     .container-direction {
         display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .custom_container {
+        width: 350px;
+    }
+
+    canvas,
+    .canvas-container {
+        height: 300px !important;
+        width: 350px !important;
+    }
+
+    .list_container{
+        width: 100%;
+    }
+
+    .traits_list{
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .second_traits_list{
+        display: flex;
+        margin: 5px 0;
+    }
+
+    .traits {
+       display: block;
+    }
+
+    .traits_container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        width: 100%;
+        height: 100%;
+        justify-items: center;
+        overflow-y: auto;
+    }
+
+    .options_container {
+        width: 350px;
+        height: 300px;
+        margin-top: 15px;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 90px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        margin: 5px;
+        transition: all 0.12s;
+    }
+    
+    .option:hover {
+        background-color: #f1f1f1;
+        border: 5px solid #ffab43;
+    }
+
+    #nailsTrait {
+        border-right: none;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 1017px){
+    .container-direction {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
     }
 }
