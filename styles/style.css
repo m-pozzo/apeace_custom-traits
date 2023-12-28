@@ -4,13 +4,23 @@
     box-sizing: border-box;
 }
 
-.container {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-evenly !important;
-    background-color: #252525 !important;
+
+.apeace_title {
+    margin-bottom: 10px !important;
     color: #f1f1f1 !important;
-    padding: 117px 0 !important;
+    font-size: 30px !important;
+    font-family: "snicker", sans-serif;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+    justify-content: space-evenly;
+    background-color: #252525;
+    color: #f1f1f1;
+    padding: 117px 0;
 }
 
 .container-direction {
@@ -26,35 +36,37 @@
     width: 500px;
 }
 
-.canvas-container {
-    width: 480px !important;
-    height: 350px !important;
+.custom {
+    width: 420px;
+    height: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-.canvas {
-    cursor: default !important;
+.apeace_img {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
 }
 
-canvas {
-    width: 480px !important;
-    height: 350px !important;
-    border: 2px solid #787776 !important;
-    border-radius: 15px !important;
-    position: absolute !important;
-}
-
-img {
-    z-index: 124;
+.zero {
+    border-radius: 0px;
 }
 
 .btn_create {
-    width: 80%;
-    height: 30px;
+    width: 70%;
+    height: 35px;
     background-color: #ef972c;
     color: #f1f1f1;
     border: 0;
     border-radius: 10px;
-    margin-top: 15px;
+    margin-top: 20px;
+    padding: 0px;
+    font-family: "snicker", sans-serif;
+    font-style: normal;
+    font-size: 22px;
     transition: all 0.1s;
 }
 
@@ -71,7 +83,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: normal;
     width: 500px;
 }
 
@@ -79,19 +91,26 @@ img {
     display: flex;
     flex-direction: row;
     list-style: none;
+    margin: 0;
+}
+
+.second_traits_list {
+    display: flex;
+    margin: 5px 0;
 }
 
 #nailsTrait {
     border-right: 1px #f1f1f1 solid;
-
 }
 
 .traits {
     color: #f1f1f1;
     border-left: 1px #f1f1f1 solid;
     padding: 0 10px;
-    text-decoration: none;
-    transition: all 0.20s;
+    text-decoration: none !important;
+    font-family: "snicker", sans-serif;
+    font-style: normal;
+    transition: all 0.15s;
 }
 
 .traits:hover {
@@ -100,7 +119,7 @@ img {
 }
 
 .traits:active {
-    color: #cc852f;
+    color: #bf7419;
 }
 
 .traits:first-child {
@@ -129,6 +148,7 @@ img {
     width: 100%;
     height: 100%;
     justify-items: center;
+    align-items: center;
     overflow-y: auto;
 }
 
@@ -150,10 +170,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 115px;
-    height: 115px;
+    width: 115px !important;
+    height: 115px !important;
     background-color: #f1f1f1;
-    border-radius: 10px;
+    border-radius: 10px !important;
     margin: 5px;
     transition: all 0.12s;
 }
@@ -161,47 +181,49 @@ img {
 .option:hover {
     background-color: #f1f1f1;
     border: 5px solid #ffab43;
-}
-
-.imgOption {
-    width: 90%;
-    height: 90%;
+    cursor: pointer;
 }
 
 @media (max-width: 576px) {
+    .container {
+        width: 100vw;
+    }
+
     .container-direction {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
 
     .custom_container {
         width: 350px;
+        margin-bottom: 70px;
     }
 
-    canvas,
-    .canvas-container {
-        height: 300px !important;
-        width: 350px !important;
+    .custom {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        position: relative;
     }
 
-    .list_container{
+    .list_container {
         width: 100%;
     }
 
-    .traits_list{
+    .traits_list {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .second_traits_list{
+    .second_traits_list {
         display: flex;
         margin: 5px 0;
     }
 
     .traits {
-       display: block;
+        display: block;
     }
 
     .traits_container {
@@ -224,14 +246,14 @@ img {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 90px;
-        height: 90px;
+        width: 90px !important;
+        height: 90px !important;
         background-color: #f1f1f1;
         border-radius: 10px;
         margin: 5px;
         transition: all 0.12s;
     }
-    
+
     .option:hover {
         background-color: #f1f1f1;
         border: 5px solid #ffab43;
@@ -240,18 +262,29 @@ img {
     #nailsTrait {
         border-right: none;
     }
+    .btn_create {
+        width: 70%;
+        height: 30px;
+        background-color: #ef972c;
+        color: #f1f1f1;
+        border: 0;
+        border-radius: 10px;
+        margin-top: 20px;
+        padding: 0px;
+        font-size: 15px;
+        transition: all 0.1s;
+    }
+    
 }
 
-@media (min-width: 577px) and (max-width: 1017px){
+@media (min-width: 577px) and (max-width: 1017px) {
     .container-direction {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
 
-    canvas,
-    .canvas-container {
-        height: 350px !important;
-        width: 450px !important;
+    .custom_container {
+        margin-bottom: 70px;
     }
 }
