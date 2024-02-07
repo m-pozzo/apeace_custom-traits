@@ -167,9 +167,6 @@
 
 
 .option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 115px !important;
     height: 115px !important;
     background-color: #f1f1f1;
@@ -179,13 +176,12 @@
 }
 
 .option:hover {
-    background-color: #f1f1f1;
     border: 5px solid #ffab43;
     cursor: pointer;
 }
 
 .btn-delete {
-    display: none;
+    background-color: #02020200;
 }
 
 @media (max-width: 576px) {
@@ -252,7 +248,6 @@
         justify-content: center;
         width: 90px !important;
         height: 90px !important;
-        background-color: #f1f1f1;
         border-radius: 10px;
         margin: 5px;
         transition: all 0.12s;
@@ -266,6 +261,7 @@
     #nailsTrait {
         border-right: none;
     }
+
     .btn_create {
         width: 70%;
         height: 30px;
@@ -278,7 +274,7 @@
         font-size: 15px;
         transition: all 0.1s;
     }
-    
+
 }
 
 @media (min-width: 577px) and (max-width: 1017px) {

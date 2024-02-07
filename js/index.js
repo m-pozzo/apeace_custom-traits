@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const defaultFur = document.querySelector(".defaultFur");
     const apeace = document.querySelector(".custom");
     const createBtn = document.getElementById("btnCreate")
-    const listContainer = document.querySelector(".list_container");
-    const variantsContainer = document.getElementById("variants");
-    const traitsContainer = document.querySelector(".traits_container")
     const backgroundColor = document.getElementById("optionsBg");
     const fur = document.getElementById("optionsFur");
     const clothes = document.getElementById("optionsClothes");
@@ -18,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const holding = document.getElementById("optionsHolding");
     const nails = document.getElementById("optionsNails");
     const wrist = document.getElementById("optionsWrist");
-    const defaultImg = document.querySelector(".delete");
-    const btnDelete = document.createElement('img')
     let arrayBg = [];
 
     async function getTraits() {
@@ -43,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     function zeroRadius() {
                         if (arrayBg.length === 0) {
-                            // defaultBg.classList.remove("apeace_img"); 
                             defaultBg.style.borderRadius = "0px";
                             console.log("se modificó");
                         } else {
@@ -71,15 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 customImg.innerHTML = ``;
                             }
                         }
-                        function deleteTrait(trait) {
-                            // const deleteBtn = document.createElement("img");
-                            // deleteBtn.src = "../img/x.png";
-                            // deleteBtn.style.cursor = "pointer";
-                            // trait.childElementCount >= 22 ? trait.append(deleteBtn) : undefined;
-                            // deleteBtn.addEventListener('click', () => {
-                            //     customImg.style.display = "none";
-                            //     defaultImg.style.display = "none";
-                            // });
+                        function deleteTrait(type) {
+                            if (urlImg === `../img/${type}/x.png`) {
+                                option.addEventListener('click', () => {
+                                    customImg.style.display = "none";
+                                });
+                                option.classList.add('btn-delete');
+                            }
                         }
                         if (trait === "background") {
                             option.addEventListener('click', () => {
@@ -88,44 +80,42 @@ document.addEventListener("DOMContentLoaded", () => {
                                 apeace.removeChild(defaultBg);
                             });
                             backgroundColor.append(option);
-                            deleteTrait(backgroundColor);
                         } else if (trait === "fur") {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "4", "fur");
                                 apeace.removeChild(defaultFur);
                             });
                             fur.append(option);
-                            deleteTrait(fur);
                         } else if (trait === "nails") {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "5", "nails");
                             });
                             nails.append(option);
-                            deleteTrait(nails);
+                            deleteTrait("nails");
                         } else if (trait === "clothes") {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "10", "clothes");
                             });
                             clothes.append(option);
-                            deleteTrait(clothes);
+                            deleteTrait("clothing");
                         } else if (trait === "finger") {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "15", "finger");
                             });
                             finger.append(option);
-                            deleteTrait(finger);
+                            deleteTrait("finger");
                         } else if (trait === "hold") {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "20", "hold");
                             });
                             holding.append(option);
-                            deleteTrait(holding);
+                            deleteTrait("hold");
                         } else {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "25", "wrist");
                             });
                             wrist.append(option);
-                            deleteTrait(wrist);
+                            deleteTrait("wrist");
                         }
                     }
                     createBtn.onclick = () => {

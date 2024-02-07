@@ -64,7 +64,8 @@
             "stuntJacket": "../img/clothing/stunt-jacket.png",
             "tweedSuit": "../img/clothing/tweed-suit.png",
             "uniform": "../img/clothing/uniform.png",
-            "woolTurtleneck": "../img/clothing/wool-turtleneck.png"
+            "woolTurtleneck": "../img/clothing/wool-turtleneck.png",
+            "none": "../img/clothing/x.png"
         }
     },
     {
@@ -90,7 +91,8 @@
             "scars": "../img/finger/scars.png",
             "scorpion": "../img/finger/scorpion.png",
             "spiderWeb": "../img/finger/spider-web.png",
-            "spiralGoldRing": "../img/finger/spiral-gold-ring.png"
+            "spiralGoldRing": "../img/finger/spiral-gold-ring.png",
+            "none": "../img/finger/x.png"
         }
     },
     {
@@ -119,7 +121,7 @@
             "chain": "../img/hold/chain.png",
             "chopsticks": "../img/hold/chopsticks-w-sushi.png",
             "cigar": "../img/hold/cigar.png",
-            "cigarette": "../img/hold/cigarette.png",
+            "cigarrete": "../img/hold/cigarrete.png",
             "coffeCup": "../img/hold/coffe-cup.png",
             "cookie": "../img/hold/cookie.png",
             "dagger": "../img/hold/dagger.png",
@@ -204,7 +206,9 @@
             "woundedHand": "../img/hold/wounded-hand.png",
             "xmasLights": "../img/hold/xmas-lights.png",
             "yellowFlower": "../img/hold/yellow-flower.png",
-            "yellowToyCar": "../img/hold/yellow-toy-car.png"
+            "yellowToyCar": "../img/hold/yellow-toy-car.png",
+            "none": "../img/hold/x.png"
+
         }
     },
     {
@@ -229,7 +233,7 @@
             "skulls": "../img/nails/skulls.png",
             "smileys": "../img/nails/smileys.png",
             "weed": "../img/nails/weed.png",
-            "regular": "../img/nails/regular.png"
+            "none": "../img/nails/x.png"
         }
     },
     {
@@ -254,7 +258,8 @@
             "jamaicaBracelet": "../img/wrist/jamaica-bracelet.png",
             "pinkHandcuffs": "../img/wrist/pink-plush-handcuffs.png",
             "rainbowBracelet": "../img/wrist/rainbow-bracelet.png",
-            "silverBracelet": "../img/wrist/silver-bracelet.png"
+            "silverBracelet": "../img/wrist/silver-bracelet.png",
+            "none": "../img/wrist/x.png"
         }
     }
 ]
