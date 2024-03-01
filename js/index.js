@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     createBtn.onclick = () => {
                         zeroRadius();
+                        apeace.style.marginRight = "10000px"
                         apeace.style.width = "1000px";
                         apeace.style.height = "1000px";
                         html2canvas(apeace)
@@ -144,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 }, 50);
                             })
                             .catch((error) => {
-                                console.error("Failed to download the Apeace.", error);
+                                console.error("Failed to download the Custom Apeace Image.", error);
                             })
                     }
                 }
