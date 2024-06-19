@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         }
                         function deleteTrait(type) {
-                            if (urlImg === `../frontend/img/${type}/x.png`) {
+                            if (urlImg === `../img/${type}/x.png`) {
                                 option.addEventListener('click', () => {
                                     customImg.style.display = "none";
                                 });
@@ -120,10 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
                     createBtn.onclick = () => {
-                        zeroRadius();
-                        // apeace.style.marginRight = "10000px"
-                        // firstCont.classList.add("oculto");
-                        // secondCont.classList.remove("oculto");
                         const swalWithBootstrapButtons = Swal.mixin({
                             customClass: {
                                 confirmButton: "btn btn-success",
@@ -154,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     icon: "success"
                                 });
                             } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                zeroRadius();
                                 apeace.style.width = "1000px";
                                 apeace.style.height = "1000px";
                                 downloadApeace(apeace);
