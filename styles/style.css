@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "snicker", sans-serif;
+    font-style: normal;
 }
 
 
@@ -9,8 +11,6 @@
     margin-bottom: 10px !important;
     color: #f1f1f1 !important;
     font-size: 30px !important;
-    font-family: "snicker", sans-serif;
-    font-style: normal;
 }
 
 .container {
@@ -70,12 +70,20 @@
     transition: all 0.1s;
 }
 
-.btn_create:hover {
+.btn_create:hover,
+.btn_back:hover,
+.btn_question:nth-child(3):hover,
+.btn_question_submit:hover,
+.btn_upload:hover {
     background-color: #cc852f;
     cursor: pointer;
 }
 
-.btn_create:active {
+.btn_create:active,
+.btn_back:active,
+.btn_question:active,
+.btn_question_submit:active,
+.btn_upload:active {
     background-color: #b67c36;
 }
 
@@ -184,6 +192,99 @@
     background-color: #02020200;
 }
 
+.question_container,
+.custom_product_container {
+    color: #f1f1f1 !important;
+    font-family: "snicker", sans-serif;
+    font-style: normal;
+}
+
+.question_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 1000px; */
+}
+
+.question_title {
+    font-size: 30px;
+}
+
+.question_input_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.btn_question {
+    font-size: 15px;
+}
+
+.btn_back,
+.btn_upload {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-family: "snicker", sans-serif;
+    font-style: normal;
+    background-color: #ef972c;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 8px;
+    transition: all 0.1s;
+}
+
+.btn_upload {
+    width: 100%;
+}
+
+.btn_back {
+    background-color: #e42525;
+}
+
+.btn_back:hover {
+    background-color: #b61212;
+}
+
+/* 
+.btn_question, .btn_question_submit {
+    width: 100%;
+} */
+
+.custom_product_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.product_img_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.custom_product_img {
+    width: 500px;
+    height: 500px;
+}
+
+.custom_product_title {
+    font-size: 30px;
+}
+
+.result {
+    background-color: #ffab43;
+    border-radius: 16px;
+}
+
+.oculto {
+    display: none;
+}
+
 @media (max-width: 576px) {
     .container {
         width: 100vw;
@@ -275,6 +376,28 @@
         transition: all 0.1s;
     }
 
+    .container {
+        height: 100vh;
+    }
+
+    .custom_product_img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .result {
+        text-align: center;
+    }
+
+    .oculto {
+        display: none;
+    }
+
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm,
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: #ef972c;
 }
 
 @media (min-width: 577px) and (max-width: 1017px) {
@@ -286,5 +409,9 @@
 
     .custom_container {
         margin-bottom: 70px;
+    }
+
+    .oculto {
+        display: none;
     }
 }

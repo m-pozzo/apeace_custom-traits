@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const lienzo = document.createElement("canvas");
-    const ctx = lienzo.getContext("2d");
     const widthBg = "100%";
     const heightImg = "100%";
     const widthAll = "100%";
@@ -15,11 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const holding = document.getElementById("optionsHolding");
     const nails = document.getElementById("optionsNails");
     const wrist = document.getElementById("optionsWrist");
+    const firstCont = document.getElementById("firstContainer");
+    // const secondCont = document.getElementById("secondContainer");
+    const thirdCont = document.getElementById("thirdContainer");
     let arrayBg = [];
 
     async function getTraits() {
         try {
-            const response = await fetch('../JSON/traits.json');
+            const response = await fetch('./JSON/traits.json');
             const traits = await response.json()
             traits.forEach(carc => {
 
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         }
                         function deleteTrait(type) {
-                            if (urlImg === `../img/${type}/x.png`) {
+                            if (urlImg === `../frontend/img/${type}/x.png`) {
                                 option.addEventListener('click', () => {
                                     customImg.style.display = "none";
                                 });
@@ -120,33 +121,52 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     createBtn.onclick = () => {
                         zeroRadius();
-                        apeace.style.marginRight = "10000px"
-                        apeace.style.width = "1000px";
-                        apeace.style.height = "1000px";
-                        html2canvas(apeace)
-                            .then(function (canvas) {
-                                const imgData = canvas.toDataURL("image/png");
-                                const a = document.createElement('a');
-                                a.download = "yourApeace.png";
-                                a.href = imgData;
-                                a.click();
-                                Toastify({
-                                    text: "¡Created succesfully!",
-                                    duration: 10000,
-                                    style: {
-                                        background: "linear-gradient(to right, #ef972c, #ef972c)",
-                                    }
-                                }).showToast();
-                                apeace.style.width = "420px";
-                                apeace.style.height = "400px";
-                                defaultBg.classList.add("apeace_img");
+                        // apeace.style.marginRight = "10000px"
+                        // firstCont.classList.add("oculto");
+                        // secondCont.classList.remove("oculto");
+                        const swalWithBootstrapButtons = Swal.mixin({
+                            customClass: {
+                                confirmButton: "btn btn-success",
+                                cancelButton: "btn btn-danger"
+                            },
+                            buttonsStyling: true
+                        });
+                        swalWithBootstrapButtons.fire({
+                            title: "Do you want a product preview with your custom image?",
+                            showCancelButton: true,
+                            confirmButtonText: "Yes",
+                            cancelButtonText: "No, just download",
+                            reverseButtons: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                arrayBg.forEach((bg) => {
+                                    bg.style.display = "none";
+                                });
+                                defaultBg.classList.add("oculto");
+                                apeace.style.width = "3000px";
+                                apeace.style.height = "3000px";
+                                downloadApeace(apeace);
+                                firstCont.classList.add("oculto");
+                                thirdCont.classList.remove("oculto");
+                                swalWithBootstrapButtons.fire({
+                                    title: "Downloaded",
+                                    text: "Your Apeace has been downloaded.",
+                                    icon: "success"
+                                });
+                            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                apeace.style.width = "1000px";
+                                apeace.style.height = "1000px";
+                                downloadApeace(apeace);
                                 setTimeout(() => {
-                                    location.reload();
-                                }, 50);
-                            })
-                            .catch((error) => {
-                                console.error("Failed to download the Custom Apeace Image.", error);
-                            })
+                                    location.reload()
+                                }, 2500)
+                                swalWithBootstrapButtons.fire({
+                                    title: "Downloaded",
+                                    text: "Your Apeace has been downloaded.",
+                                    icon: "success"
+                                });
+                            }
+                        });
                     }
                 }
             });
@@ -175,6 +195,57 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         });
     }
+    function downloadApeace(image) {
+        html2canvas(image)
+            .then(function (canvas) {
+                const imgData = canvas.toDataURL("image/png");
+                const a = document.createElement('a');
+                a.download = "yourApeace.png";
+                a.href = imgData;
+                a.click();
+                Toastify({
+                    text: "¡Created succesfully!",
+                    duration: 10000,
+                    style: {
+                        background: "linear-gradient(to right, #ef972c, #ef972c)",
+                    }
+                }).showToast();
+                apeace.style.width = "420px";
+                apeace.style.height = "400px";
+                defaultBg.classList.add("apeace_img");
+                // setTimeout(() => {
+                //     location.reload();
+                // }, 50);
+            })
+            .catch((error) => {
+                console.error("Failed to download the Custom Apeace Image.", error);
+            })
+    }
+
+
+    document.getElementById('upload-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData();
+        const fileField = document.getElementById('image-input');
+
+        formData.append('image', fileField.files[0]);
+
+        try {
+            const response = await axios.post('http://localhost:3000/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            const resultDiv = document.getElementById("result")
+            resultDiv.innerHTML = `
+                <img src=${response.data.mockupUrl} alt="Product Mockup" class="custom_product_img"/>
+            `
+            // imgProductMockup.src = response.data.mockupUrl
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
 
 
     getTraits();
