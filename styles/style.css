@@ -288,6 +288,7 @@
 @media (max-width: 576px) {
     .container {
         width: 100vw;
+        padding: 40px 0;
     }
 
     .container-direction {
@@ -299,6 +300,11 @@
     .custom_container {
         width: 350px;
         margin-bottom: 70px;
+    }
+
+    .custom_product_container{
+
+        justify-content: center;
     }
 
     .custom {
@@ -397,7 +403,7 @@
 
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm,
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-    background-color: #ef972c;
+    background-color: #ef972c !important;
 }
 
 @media (min-width: 577px) and (max-width: 1017px) {
