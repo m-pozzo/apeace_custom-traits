@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 thirdCont.classList.remove("oculto");
                                 swalWithBootstrapButtons.fire({
                                     title: "Downloaded",
-                                    text: "Your Apeace has been downloaded.",
+                                    text: "Your Apeace has been downloaded. Now create your Mockup!",
                                     icon: "success"
                                 });
                             } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -174,24 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
-
-
-    function active() {
-        $('ul a:first').addClass('active');
-        $('.traits_container').hide();
-        $('.traits_container:first').show();
-
-        $('ul.traits_list a').click(function () {
-            $('ul.traits_list a').removeClass('active');
-            $(this).addClass('active');
-            $('.options_container .traits_container').hide();
-
-            let option = $(this).attr('href');
-            $(option).show();
-            return false;
-        });
-    }
     function downloadApeace(image) {
         html2canvas(image)
             .then(function (canvas) {
@@ -220,33 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    document.getElementById('upload-form').addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData();
-        const fileField = document.getElementById('image-input');
-
-        formData.append('image', fileField.files[0]);
-
-        try {
-            const response = await axios.post('http://localhost:3000/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            const resultDiv = document.getElementById("result")
-            resultDiv.innerHTML = `
-                <img src=${response.data.mockupUrl} alt="Product Mockup" class="custom_product_img"/>
-            `
-            // imgProductMockup.src = response.data.mockupUrl
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    });
-
-
     getTraits();
-    active();
-
 })
 
