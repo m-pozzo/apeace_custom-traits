@@ -6,6 +6,9 @@
     font-style: normal;
 }
 
+body {
+    height: 100vh;
+}
 
 .apeace_title {
     margin-bottom: 10px !important;
@@ -17,6 +20,7 @@
     display: flex;
     flex-direction: row;
     width: 100% !important;
+    height: 100%;
     justify-content: space-evenly;
     background-color: #252525;
     color: #f1f1f1;
@@ -91,7 +95,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: normal;
+    justify-content: center;
     width: 500px;
 }
 
@@ -286,9 +290,16 @@
 }
 
 @media (max-width: 576px) {
+    body {
+        height: fit-content;
+        background-color: #252525;
+
+    }
+
     .container {
         width: 100vw;
         padding: 40px 0;
+        height: 100%;
     }
 
     .container-direction {
@@ -302,7 +313,7 @@
         margin-bottom: 70px;
     }
 
-    .custom_product_container{
+    .custom_product_container {
 
         justify-content: center;
     }

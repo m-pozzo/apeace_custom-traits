@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         }
                         function deleteTrait(type) {
-                            if (urlImg === `../img/${type}/x.png`) {
+                            if (urlImg === `./img/${type}/x.png`) {
                                 option.addEventListener('click', () => {
                                     customImg.style.display = "none";
                                 });
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 insertTrait(widthAll, heightImg, "15", "finger");
                             });
                             finger.append(option);
-                            deleteTrait("finger");
+                            deleteTrait(trait);
                         } else if (trait === "hold") {
                             option.addEventListener('click', () => {
                                 insertTrait(widthAll, heightImg, "20", "hold");
@@ -127,29 +127,29 @@ document.addEventListener("DOMContentLoaded", () => {
                             },
                             buttonsStyling: true
                         });
-                        swalWithBootstrapButtons.fire({
-                            title: "Do you want a product preview with your custom image?",
-                            showCancelButton: true,
-                            confirmButtonText: "Yes",
-                            cancelButtonText: "No, just download",
-                            reverseButtons: false
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                arrayBg.forEach((bg) => {
-                                    bg.style.display = "none";
-                                });
-                                defaultBg.classList.add("oculto");
-                                apeace.style.width = "3000px";
-                                apeace.style.height = "3000px";
-                                downloadApeace(apeace);
-                                firstCont.classList.add("oculto");
-                                thirdCont.classList.remove("oculto");
-                                swalWithBootstrapButtons.fire({
-                                    title: "Downloaded",
-                                    text: "Your Apeace has been downloaded. Now create your Mockup!",
-                                    icon: "success"
-                                });
-                            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        // swalWithBootstrapButtons.fire({
+                        //     title: "Do you want a product preview with your custom image?",
+                        //     showCancelButton: true,
+                        //     confirmButtonText: "Yes",
+                        //     cancelButtonText: "No, just download",
+                        //     reverseButtons: false
+                        // }).then((result) => {
+                        //     if (result.isConfirmed) {
+                        //         arrayBg.forEach((bg) => {
+                        //             bg.style.display = "none";
+                        //         });
+                        //         defaultBg.classList.add("oculto");
+                        //         apeace.style.width = "3000px";
+                        //         apeace.style.height = "3000px";
+                        //         downloadApeace(apeace);
+                        //         firstCont.classList.add("oculto");
+                        //         thirdCont.classList.remove("oculto");
+                        //         swalWithBootstrapButtons.fire({
+                        //             title: "Downloaded",
+                        //             text: "Your Apeace has been downloaded. Now create your Mockup!",
+                        //             icon: "success"
+                        //         });
+                        //     } else if (result.dismiss === Swal.DismissReason.cancel) {
                                 zeroRadius();
                                 apeace.style.width = "1000px";
                                 apeace.style.height = "1000px";
@@ -161,8 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     title: "Downloaded",
                                     text: "Your Apeace has been downloaded.",
                                     icon: "success"
-                                });
-                            }
+                                // });
+                            // }
                         });
                     }
                 }
