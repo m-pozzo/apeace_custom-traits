@@ -150,19 +150,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         //             icon: "success"
                         //         });
                         //     } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                zeroRadius();
-                                apeace.style.width = "1000px";
-                                apeace.style.height = "1000px";
-                                downloadApeace(apeace);
-                                setTimeout(() => {
-                                    location.reload()
-                                }, 2500)
-                                swalWithBootstrapButtons.fire({
-                                    title: "Downloaded",
-                                    text: "Your Apeace has been downloaded.",
-                                    icon: "success"
-                                // });
-                            // }
+                        zeroRadius();
+                        apeace.style.width = "500px";
+                        apeace.style.height = "500px";
+                        downloadApeace(apeace);
+                        setTimeout(() => {
+                            location.reload()
+                        }, 2500)
+                        swalWithBootstrapButtons.fire({
+                            title: "Downloaded",
+                            text: "Your Apeace has been downloaded.",
+                            icon: "success"
                         });
                     }
                 }
@@ -170,7 +168,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
         catch (err) {
-            console.err('An error happend', err)
+            console.err('An error happend', err);
+            swalWithBootstrapButtons.fire({
+                title: "An error has occurred",
+                text: "Your Apeace can't be downloaded, try again.",
+                icon: "error"
+            });
         }
     }
 
